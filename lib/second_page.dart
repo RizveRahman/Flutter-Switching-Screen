@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class SecondPage extends StatelessWidget{
-  const SecondPage({super.key});
+  var getName;
+
+  SecondPage(this.getName);
 
   @override
   Widget build(BuildContext context) {
@@ -11,15 +13,23 @@ class SecondPage extends StatelessWidget{
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ThirdPage())
-              );
-            }, child: const Text('Third Page')),
-            ElevatedButton(onPressed: () {
-              Navigator.pop(context);
-            },child: const Text("Home"),),
+            Text('Welcome $getName', style: TextStyle(fontSize: 25),),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(onPressed: () {
+                  Navigator.pop(context);
+                },child: const Text("Home"),),
+                SizedBox(width: 10,),
+                ElevatedButton(onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ThirdPage())
+                  );
+                }, child: const Text('Third Page')),
+              ],
+            ),
+
           ],
         ),
       ),

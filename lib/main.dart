@@ -35,13 +35,20 @@ class MyHomePage extends StatelessWidget{
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextField(),
+              const Text('What\'s your name?', style:
+              TextStyle(fontWeight: FontWeight.w500, fontSize: 25),),
+              SizedBox(
+                width: 250,
+                child: TextField(
+                  controller: nameController,
+                ),
+              ),
               ElevatedButton(onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const SecondPage())
+                  MaterialPageRoute(builder: (context) => SecondPage(nameController.text.toString()))
                 );
-              },child: Text("Submit", style: TextStyle(
+              },child: const Text("Submit", style: TextStyle(
                   fontSize: 25, fontWeight: FontWeight.w500, color: Colors.white),),
               ),
             ],
