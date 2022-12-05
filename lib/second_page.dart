@@ -16,7 +16,7 @@ class SecondPage extends StatelessWidget{
                 context,
                 MaterialPageRoute(builder: (context) => ThirdPage())
               );
-            }, child: Text('Third Page')),
+            }, child: const Text('Third Page')),
             ElevatedButton(onPressed: () {
               Navigator.pop(context);
             },child: const Text("Home"),),
@@ -28,13 +28,15 @@ class SecondPage extends StatelessWidget{
 }
 
 class ThirdPage extends StatelessWidget {
+  const ThirdPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Third Page'),),
+      appBar: AppBar(title: const Text('Third Page'),),
       body: ElevatedButton(onPressed: () {
         Navigator.pop(context);
-      }, child: Text('Home')),
+      }, child: const Text('Home')),
     );
   }
 }
