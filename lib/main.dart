@@ -17,25 +17,36 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget{
-  const MyHomePage({super.key});
+  var nameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Second Screen'),),
-      body: Center(
-        child: ElevatedButton(onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const SecondPage())
-          );
-        },child: Text("Go next page", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),),),
+      body: Container(
+        color: Colors.grey,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextField(),
+              ElevatedButton(onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SecondPage())
+                );
+              },child: Text("Submit", style: TextStyle(
+                  fontSize: 25, fontWeight: FontWeight.w500, color: Colors.white),),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
