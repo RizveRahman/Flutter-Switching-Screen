@@ -25,6 +25,8 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget{
   var nameController = TextEditingController();
 
+  MyHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
