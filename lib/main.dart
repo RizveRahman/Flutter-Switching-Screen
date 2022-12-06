@@ -37,12 +37,25 @@ class MyHomePage extends StatelessWidget{
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('What\'s your name?', style:
-              TextStyle(fontWeight: FontWeight.w500, fontSize: 25),),
               SizedBox(
                 width: 250,
                 child: TextField(
                   controller: nameController,
+                  decoration: InputDecoration(
+                    hintText: 'Enter Name',
+                    prefixIcon: const Icon(Icons.people),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Colors.blue,
+                        width: 1.6,
+                      ),
+                      borderRadius: BorderRadius.circular(10)
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: BorderSide(color: Colors.black, width: 2.5)
+                    )
+                  ),
                 ),
               ),
               ElevatedButton(onPressed: () {
